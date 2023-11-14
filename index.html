@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two Color Mix System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <button id="modalToggle" class="info">i</button>
+      <div class="modal" id="modal">
+        <div class="modal__inner">
+          <h1 class="modal-heading">NEW WAY<br />TO MIX<br />YOUR COLORS</h1>
+          <h2 class="modal-subheading">Mathematical Background:</h2>
+          <p class="modal-text">
+            The color transformation on this site is achieved through a linear
+            interpolation (lerp) algorithm based on temperature values. The
+            temperature data, obtained from the OpenWeatherMap API in Kelvin, is
+            converted to Celsius by subtracting 273.15.
+          </p>
+          <p class="modal-text">
+            The normalized temperature, ranging from -40°C to +40°C, is
+            calculated by mapping the temperature to a scale between 0 and 1.
+            This normalized value serves as a parameter for linearly
+            interpolating between the selected cooler and warmer colors.
+          </p>
+          <h2 class="modal-subheading">Linear Interpolation Formula:</h2>
+          <pre>
+lerp (a,b,t) = a ⋅ ( 1 − t ) + b ⋅ t
+
+Where:
+a is the cooler color,
+b is the warmer color,
+t is the normalized temperature.
+          </pre>
+          <h2 class="modal-subheading">Color Transformation:</h2>
+          <p class="modal-text">
+            Based on the temperature in Stockholm, the background color smoothly
+            blends between the cooler and warmer colors based on the linear
+            interpolation. Colder temperatures move it towards the user’s chosen
+            color for ”COLD”, while warmer temperatures move it toward the
+            user's chosen color for ”WARM”.
+          </p>
+          <p class="modal-text">
+            The RGB code is displayed on the page, giving the users the exact
+            color code for the temperature-color-mix.
+          </p>
+          <p class="modal-text">Niklas Wallenborg 2023</p>
+          <button id="closeButton" class="close-button">Close</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <h1 class="title">
+          Two Color Mix System<br /><span class="title__small-text"
+            >based on the</span
+          ><br />Temperature in Stockholm
+        </h1>
+        <div class="box-color left">
+          <p class="sub-title">COLD</p>
+          <input type="color" id="color1" value="#ffffff" />
+          <label for="color1" class="label-text"
+            >This color signifies colder temperatures from -40 to 0
+            degrees.</label
+          >
+        </div>
+        <div class="box-color right">
+          <p class="sub-title">WARM</p>
+          <input type="color" id="color2" value="#ffffff" />
+          <label for="color2" class="label-text"
+            >This color signifies warmer temperatures from 0 to +40
+            degrees.</label
+          >
+        </div>
+      </div>
+      <div id="rgb-results" class="rgb-results"></div>
+      <footer class="footer">
+        <img
+          class="image"
+          src="stockholm-skyline.svg"
+          alt="stockholm-skyline"
+        />
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

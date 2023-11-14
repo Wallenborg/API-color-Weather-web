@@ -1,0 +1,232 @@
+/* css Resetting */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 10px;
+  font-family: "Gruppo", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  margin: 0;
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1200px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+}
+
+.info {
+  border: solid 0.5px black;
+  background-color: rgba(208, 208, 208, 0.406);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 1px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-left: 0;
+}
+
+.box-color {
+  border: solid 0.5px black;
+  background-color: rgba(208, 208, 208, 0.406);
+  border-radius: 10px;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  grid-row: 1;
+  grid-column: 1 / span 3;
+  justify-self: center;
+  text-align: center;
+  border: solid 0.5px black;
+  background-color: rgba(208, 208, 208, 0.406);
+  border-radius: 10px;
+  padding: 0.4rem;
+}
+
+@media (min-width: 600px) {
+  .title {
+    font-size: 2.2rem;
+  }
+}
+
+.title__small-text {
+  font-size: 1.4rem;
+}
+
+@media (min-width: 600px) {
+  .title__small-text {
+    font-size: 1.8rem;
+  }
+}
+.sub-title {
+  font-size: 1.8rem;
+}
+
+.label-text {
+  width: 150px;
+  text-align: center;
+}
+.left {
+  align-self: start;
+  grid-row: 2;
+  grid-column: 1;
+  width: 150px;
+  max-width: 210px;
+  justify-self: start;
+}
+@media (min-width: 600px) {
+  .left {
+    margin-left: 20px;
+  }
+}
+
+.right {
+  align-self: end;
+  grid-row: 2;
+  grid-column: 3;
+  width: 150px;
+  max-width: 210px;
+  justify-self: end;
+}
+@media (min-width: 600px) {
+  .right {
+    margin-right: 20px;
+  }
+}
+
+input[type="color"] {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background-color: transparent;
+  cursor: bucket;
+}
+
+.rgb-results {
+  display: inline;
+  color: black;
+  text-align: center;
+  align-self: center;
+  font-size: 1.4rem;
+  margin-top: 150px;
+  border: solid 0.5px black;
+  background-color: rgba(208, 208, 208, 0.406);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .rgb-results {
+    font-size: 2.2rem;
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: 1200px;
+  opacity: 0.4;
+  overflow: hidden;
+}
+
+.image {
+  max-width: 1200px;
+  min-width: 400px;
+  justify-self: center;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 0);
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.modal--show {
+  visibility: visible;
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.modal__inner {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  transition: translate 0.5s, opacity 0.5s;
+  opacity: 0;
+  translate: 0 -10%;
+}
+
+.modal--show .modal__inner {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.modal-heading {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.modal-subheading {
+  margin-bottom: 10px;
+}
+
+.modal-text {
+  margin-bottom: 5px;
+}
+
+.close-button {
+  margin-top: 20px;
+  font-family: "Gruppo", sans-serif;
+  border: solid 0.5px black;
+  background-color: rgba(208, 208, 208, 0.406);
+  border-radius: 10px;
+  padding-bottom: 3px;
+}
