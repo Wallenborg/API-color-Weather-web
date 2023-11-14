@@ -84,20 +84,11 @@ function interpolate(color1, color2, factor) {
 let modalToggleEl = document.querySelector("#modalToggle");
 let modalEl = document.querySelector("#modal");
 let modalInnerEl = modalEl.querySelector(".modal__inner");
-let closeButtonEl = document.querySelector("#closeButton");
 
 modalToggleEl.addEventListener("click", function () {
   modalEl.classList.add("modal--show");
 });
 
-closeButtonEl.addEventListener("click", function () {
-  modalEl.classList.remove("modal--show");
-});
-
 modalEl.addEventListener("click", function () {
   modalEl.classList.remove("modal--show");
-});
-
-modalInnerEl.addEventListener("click", function (e) {
-  e.stopPropagation();
 });

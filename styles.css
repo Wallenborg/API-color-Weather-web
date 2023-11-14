@@ -150,7 +150,7 @@ input[type="color"] {
   text-align: center;
   align-self: center;
   font-size: 1.4rem;
-  margin-top: 150px;
+  margin-top: 100px;
   border: solid 0.5px black;
   background-color: rgba(208, 208, 208, 0.406);
   border-radius: 10px;
@@ -196,8 +196,9 @@ input[type="color"] {
 }
 
 .modal__inner {
-  max-width: 400px;
-  margin: 4rem auto;
+  width: 80vw;
+  height: 60wv;
+  margin: 1rem auto;
   padding: 1rem;
   background-color: #fff;
   transition: translate 0.5s, opacity 0.5s;
@@ -220,13 +221,4 @@ input[type="color"] {
 
 .modal-text {
   margin-bottom: 5px;
-}
-
-.close-button {
-  margin-top: 20px;
-  font-family: "Gruppo", sans-serif;
-  border: solid 0.5px black;
-  background-color: rgba(208, 208, 208, 0.406);
-  border-radius: 10px;
-  padding-bottom: 3px;
 }
