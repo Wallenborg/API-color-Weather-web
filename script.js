@@ -1,26 +1,31 @@
-// Code inside this function will run when the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   let colorPicker1El = document.querySelector("#color1");
   let colorPicker2El = document.querySelector("#color2");
   let rgbResultsEL = document.querySelector("#rgb-results");
 
-  // API_KEY to key to use the requested api
-  let apiKey = "76ace1dc563fa0f92a3353bb1bf7bfe8";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${apiKey}`;
-
   colorPicker1El.addEventListener("input", updateBackgroundColor);
   colorPicker2El.addEventListener("input", updateBackgroundColor);
 
   async function updateBackgroundColor() {
-    try {
-      const res = await fetch(apiUrl); // get the data - result
-      const data = await res.json(); // wait for the data to be run
+    const url = "https://open-weather13.p.rapidapi.com/city/stockholm";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "48a5937b2cmsh17d1fd373cc39bcp1e33fdjsn60bd102a98e2",
+        "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+      },
+    };
 
-      console.log(data);
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json(); // Use response.json() to parse JSON data
+      console.log(data); // Log the parsed JSON data
+
       // To get the info from openweathermap data.main.temp and save as temperatureInCelsius
-      let temperatureInCelsius = Math.round(data.main.temp - 273.15); // Convert from Kelvin to Celsius
-      console.log(temperatureInCelsius, "Celsius");
+      let temperatureInCelsius = Math.round((data.main.temp - 32) * (5 / 9)); // Convert temperature from Fahrenheit to Celsius and round to the nearest whole number
+      //
+      console.log(temperatureInCelsius);
+
       // Get user-selected colors
       let color1 = colorPicker1El.value;
       let color2 = colorPicker2El.value;
@@ -33,10 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       document.body.style.backgroundColor = backgroundColor;
 
-      //display New rbg code on site
+      // Display New RGB code on site
       rgbResultsEL.innerHTML = backgroundColor;
     } catch (error) {
-      console.error("Error fetching data:", error); // catch error and show it
+      console.error("Error fetching data:", error);
     }
   }
 
