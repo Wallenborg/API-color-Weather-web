@@ -198,12 +198,14 @@ input[type="color"] {
 .modal__inner {
   width: 80vw;
   height: 60wv;
+  max-height: 500px;
   margin: 1rem auto;
   padding: 1rem;
   background-color: #fff;
   transition: translate 0.5s, opacity 0.5s;
   opacity: 0;
   translate: 0 -10%;
+  overflow: scroll;
 }
 
 .modal--show .modal__inner {
