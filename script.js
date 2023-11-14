@@ -4,10 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let colorPicker2El = document.querySelector("#color2");
   let rgbResultsEL = document.querySelector("#rgb-results");
 
-  // API_KEY to key to use the requested api
-  let apiKey = "76ace1dc563fa0f92a3353bb1bf7bfe8";
-
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${apiKey}`;
+  let apiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=76ace1dc563fa0f92a3353bb1bf7bfe8";
 
   colorPicker1El.addEventListener("input", updateBackgroundColor);
   colorPicker2El.addEventListener("input", updateBackgroundColor);
@@ -31,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         color1,
         color2
       );
+
       document.body.style.backgroundColor = backgroundColor;
 
       //display New rbg code on site
